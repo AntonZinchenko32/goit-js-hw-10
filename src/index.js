@@ -31,12 +31,11 @@ function handleInput(event) {
 function renderCountries(countries) {
     let markup;
 
-console.log(countries)
-
 if (countries.length > 10) Notify.info('Too many matches found. Please enter a more specific name.');
 
-    
+  
 else if (countries.length > 1) {
+    countryInfo.innerHTML = "";
     markup = countries
         .map(({ name, flags }) => {
             return `<li class="list-item"><img class="country-flag" src=${flags.svg} alt="Сountry flag"><b class="country-name">${name.common}</b></li>`;
@@ -46,6 +45,7 @@ else if (countries.length > 1) {
 }
     
 else {
+    countryList.innerHTML = ""
     markup = countries
         .map(({ name, flags, capital, population, languages }) => {
             return `
@@ -55,6 +55,6 @@ else {
           <p><b>Languages</b>: ${Object.values(languages).join(", ")}</p>
         `;
         });
-  countryInfo.innerHTML = markup;
+    countryInfo.innerHTML = markup;
 }
 }
