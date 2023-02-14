@@ -1,9 +1,11 @@
-export function fetchCountries(name) {
+export function fetchCountries(countryName) {
     
     // Рядок з параметрами запиту на сервер
-    const params = "name.official,capital,population,flags.svg,languages";
+    const params = "name,capital,population,flags,languages";
 
-  return fetch(`https://restcountries.com/v2/all?fields=${params}`).then(
+
+
+  return fetch(`https://restcountries.com/v3.1/name/${countryName}?fields=${params}`).then(
     (response) => {
       if (!response.ok) {
         throw new Error(response.status);
