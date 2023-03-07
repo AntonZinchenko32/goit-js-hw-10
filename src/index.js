@@ -31,6 +31,8 @@ function handleInput(event) {
 function renderCountries(countries) {
     let markup;
 
+    console.log(countries)
+
 if (countries.length > 10) Notify.info('Too many matches found. Please enter a more specific name.');
 
   
